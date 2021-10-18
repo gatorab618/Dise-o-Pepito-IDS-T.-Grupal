@@ -1,14 +1,11 @@
 /*
  * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Interfaz;
 
-/**
- *
- * @author User
- */
+import java.awt.event.ActionEvent;
+
+import javax.swing.JButton;
+
 public class EscojerTipoDeUsuario extends javax.swing.JFrame {
 
     /**
@@ -93,20 +90,63 @@ public class EscojerTipoDeUsuario extends javax.swing.JFrame {
         Bienvenido3.setText("CLIENTE");
         jPanel2.add(Bienvenido3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, -1, -1));
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosYImagenes/admin Grande.png"))); // NOI18N
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 90, -1, -1));
+        //Configuracion de boton administrador
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosYImagenes/admin Grande.png")));
+        jButton2.addActionListener(new java.awt.event.ActionListener(){
+            public void actionPerformed(java.awt.event.ActionEvent evt){
+                jButton2ActionPerformed(evt);
 
+            }
+
+        });
+
+        //Configurar boton usuario
+        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 90, -1, -1));
+        
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosYImagenes/PerfilUsuarioTamañoGrande2.png"))); // NOI18N
+        jButton3.addActionListener(new java.awt.event.ActionListener(){
+            public void actionPerformed(java.awt.event.ActionEvent evt){
+                jButton3ActionPerformed(evt);
+
+            }
+
+        });
         jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, -1, -1));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 610, 390));
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }
 
-    /**
-     * @param args the command line arguments
-     */
+    //Paso de una a la ventana admin
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+        if (evt.getSource() == jButton2) {
+            Login ventanaAdmin = new Login();
+            ventanaAdmin.setBounds(0, 0, 1280, 720);
+            ventanaAdmin.setVisible(true);
+            ventanaAdmin.setResizable(false);
+            ventanaAdmin.setLocationRelativeTo(null);
+            this.setVisible(false);
+
+        }
+    }
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+        if (evt.getSource() == jButton3) {
+            RegistrarNuevoUsuario ventanausuario = new RegistrarNuevoUsuario();
+            ventanausuario.setBounds(0, 0, 750, 800);
+            ventanausuario.setVisible(true);
+            ventanausuario.setResizable(false);
+            ventanausuario.setLocationRelativeTo(null);
+            this.setVisible(false);
+            //width="1280" height="720"/>
+
+        }
+    }
+
+  
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
