@@ -1,15 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
+
+
 package Interfaz;
 
-/**
- *
- * @author Sammy Guergachi <sguergachi at gmail.com>
- */
+import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
+
 public class Login extends javax.swing.JFrame {
+
+    public String Usuario = "";
+    char[] password ;
+   
 
     /**
      * Creates new form NewJFrame
@@ -47,6 +48,7 @@ public class Login extends javax.swing.JFrame {
         BotonCerrar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -156,9 +158,29 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    //Iniciar Sesion
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        if (evt.getSource() == jButton1) {
+           Usuario = jTextField1.getText().trim();
+           password = jPasswordField1.getPassword();
+
+            if (Usuario.equals("") ) {
+                JOptionPane.showMessageDialog(null, "Debes ingresar el usuario ");
+            } else if(password.length == 0){
+                JOptionPane.showMessageDialog(null, "Debes ingresar la contrasena");
+            }else{
+            Caja ventanaCaja = new Caja();
+            ventanaCaja.setBounds(0, 0, 750, 500);
+            ventanaCaja.setVisible(true);
+            ventanaCaja.setResizable(false);
+            ventanaCaja.setLocationRelativeTo(null);
+            this.setVisible(false);
+            }
+
+        }
+
+
+    }
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
@@ -226,3 +248,4 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
+
